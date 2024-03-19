@@ -33,6 +33,8 @@
     --ring: 222.2 84% 4.9%;
  
     --radius: 0.5rem;
+
+    --ai-assi-primary: #5661F6;
   }
  
   .dark {
@@ -73,4 +75,11 @@
   body {
     @apply bg-background text-foreground;
   }
+}
+
+.text-overflow-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: block; /* or inline-block */
 }
