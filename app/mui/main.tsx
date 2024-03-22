@@ -21,6 +21,9 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
+import { Collapse } from "@mui/material";
+import { FaChevronUp } from "react-icons/fa6";
+import { FaChevronDown } from "react-icons/fa6";
 
 const drawerWidth = 240;
 
@@ -83,8 +86,13 @@ const DrawerHeader = styled("div")(({ theme }) => ({
 
 export default function PersistentDrawerLeft() {
   const theme = useTheme();
-  const [open, setOpen] = React.useState(false);
+  const [open, setOpen] = React.useState(true);
+  const [collapseOpen, setCollapseOpen] = React.useState(false);
   const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
+
+  const handleClick = () => {
+    setCollapseOpen(!collapseOpen);
+  };
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -138,24 +146,59 @@ export default function PersistentDrawerLeft() {
         </DrawerHeader>
         <Divider />
         <List>
+          <h2 className="mb-2 mt-1 px-4 text-lg font-semibold tracking-tight">
+            Discover
+          </h2>
           {["Inbox", "Starred", "Send email", "Drafts"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  {index % 2 === 0 ? <MailIcon /> : <MailIcon />}
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
             </ListItem>
           ))}
+          <ListItemButton onClick={handleClick}>
+            <ListItemIcon>
+              <InboxIcon />
+            </ListItemIcon>
+            <ListItemText primary="Inbox" />
+            {collapseOpen ? <FaChevronUp /> : <FaChevronDown />}
+          </ListItemButton>
+          <Collapse in={collapseOpen} timeout="auto" unmountOnExit>
+            <List component="div" disablePadding>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <ChevronRightIcon />
+                </ListItemIcon>
+                <ListItemText primary="Starred" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <ChevronRightIcon />
+                </ListItemIcon>
+                <ListItemText primary="Starred" />
+              </ListItemButton>
+              <ListItemButton sx={{ pl: 4 }}>
+                <ListItemIcon>
+                  <ChevronRightIcon />
+                </ListItemIcon>
+                <ListItemText primary="Starred" />
+              </ListItemButton>
+            </List>
+          </Collapse>
         </List>
         <Divider />
         <List>
+          <h2 className="mb-2 mt-1 px-4 text-lg font-semibold tracking-tight">
+            Discover 2
+          </h2>
           {["All mail", "Trash", "Spam"].map((text, index) => (
             <ListItem key={text} disablePadding>
               <ListItemButton>
                 <ListItemIcon>
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                  <ChevronRightIcon />
                 </ListItemIcon>
                 <ListItemText primary={text} />
               </ListItemButton>
