@@ -3,18 +3,12 @@
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import {
-  List,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
   Button as MuiButton,
   IconButton as MuiIconButton,
 } from "@mui/material";
 import { ScrollArea } from "@/components/ui/scroll-area";
 
-import ConversationSvg from "@/components/icons/conversation.svg";
-
-import { CONVERSATIONS, ConversationType } from "../data/conversations";
+import { CONVERSATIONS } from "../data/conversations";
 
 import ListItem from "./listItem";
 
@@ -22,7 +16,7 @@ export function Sidebar({ className }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "pb-6 justify-between flex flex-col  h-screen max-h-screen",
+        "pb-6 justify-between bg-background rounded-xl flex flex-col ml-2 my-2 h-[calc(100vh_-_16px)] max-h-screen",
         className
       )}
     >
