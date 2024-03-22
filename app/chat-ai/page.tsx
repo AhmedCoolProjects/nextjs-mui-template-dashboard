@@ -1,4 +1,5 @@
 import { Metadata } from "next";
+import Suggestions from "./components/suggestions";
 
 export const metadata: Metadata = {
   title: "Chat AI",
@@ -6,5 +7,5 @@ export const metadata: Metadata = {
 };
 
 export default function ChatAIPage() {
-  return <div>hi</div>;
+  return <Suggestions />;
 }
