@@ -12,7 +12,7 @@ function InputPrompt() {
       >
         🧠
         <Input
-          className=" mx-2 outline-none font-semibold ring-0 border-0 focus-visible:ring-0"
+          className=" mx-2 shadow-none outline-none font-semibold ring-0 border-0 focus-visible:ring-0"
           placeholder="What's in your mind?..."
         />
         <IconButton className="bg-ai-assi-primary hover:bg-ai-assi-primary">
