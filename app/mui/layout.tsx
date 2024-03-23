@@ -232,36 +232,36 @@ export default function MuiLayout({
                 href: "/mui/charts/line",
                 Icon: FaChartLine,
               },
-              {
-                title: "Pie Chart",
-                href: "/mui/charts/pie",
-                Icon: FiPieChart,
-              },
-              {
-                title: "Area Chart",
-                href: "/mui/charts/area",
-                Icon: LuAreaChart,
-              },
-              {
-                title: "Scatter Chart",
-                href: "/mui/charts/scatter",
-                Icon: FiPieChart,
-              },
-              {
-                title: "Radar Chart",
-                href: "/mui/charts/radar",
-                Icon: FiPieChart,
-              },
-              {
-                title: "Polar Area Chart",
-                href: "/mui/charts/polar-area",
-                Icon: FiPieChart,
-              },
-              {
-                title: "Doughnut Chart",
-                href: "/mui/charts/doughnut",
-                Icon: FiPieChart,
-              },
+              // {
+              //   title: "Pie Chart",
+              //   href: "/mui/charts/pie",
+              //   Icon: FiPieChart,
+              // },
+              // {
+              //   title: "Area Chart",
+              //   href: "/mui/charts/area",
+              //   Icon: LuAreaChart,
+              // },
+              // {
+              //   title: "Scatter Chart",
+              //   href: "/mui/charts/scatter",
+              //   Icon: FiPieChart,
+              // },
+              // {
+              //   title: "Radar Chart",
+              //   href: "/mui/charts/radar",
+              //   Icon: FiPieChart,
+              // },
+              // {
+              //   title: "Polar Area Chart",
+              //   href: "/mui/charts/polar-area",
+              //   Icon: FiPieChart,
+              // },
+              // {
+              //   title: "Doughnut Chart",
+              //   href: "/mui/charts/doughnut",
+              //   Icon: FiPieChart,
+              // },
             ]}
           />
         </List>
