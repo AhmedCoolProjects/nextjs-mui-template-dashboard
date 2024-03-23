@@ -14,20 +14,23 @@ import IconButton from "@mui/material/IconButton";
 import { AiOutlineMenuUnfold as MenuIcon } from "react-icons/ai";
 import { AiOutlineMenuFold as ChevronLeftIcon } from "react-icons/ai";
 import { AiOutlineMenuFold as ChevronRightIcon } from "react-icons/ai";
-import { AiOutlineMenuFold as InboxIcon } from "react-icons/ai";
-import { AiOutlineMenuFold as MailIcon } from "react-icons/ai";
 import ListItem from "@mui/material/ListItem";
 import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { Collapse, InputBase } from "@mui/material";
-import { FaChevronUp } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa6";
+import { InputBase } from "@mui/material";
 import { IoSearch } from "react-icons/io5";
-import Link from "next/link";
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
+import SidebarItem from "./components/sidebarItem";
+import { GoCommentDiscussion } from "react-icons/go";
+import { RxDashboard } from "react-icons/rx";
+import { BiBarChartSquare } from "react-icons/bi";
+import SidebarCollapseItem from "./components/sidebarCollapseItem";
+import { IoBarChartSharp } from "react-icons/io5";
+import { FiPieChart } from "react-icons/fi";
+import { FaChartLine } from "react-icons/fa6";
+import { LuAreaChart } from "react-icons/lu";
 
 const drawerWidth = 240;
 
@@ -209,65 +212,58 @@ export default function MuiLayout({
           <h2 className="mb-2 mt-1 px-4 text-lg font-semibold tracking-tight">
             Discover
           </h2>
-          <Link href="/mui" passHref>
-            <ListItem
-              sx={{
-                bgcolor: pathname === "/mui" ? "grey.100" : "inherit",
-              }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary="Dashboard" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <Link href="/mui/charts" passHref>
-            <ListItem
-              sx={{
-                bgcolor: pathname === "/mui/charts" ? "grey.100" : "inherit",
-              }}
-              disablePadding
-            >
-              <ListItemButton>
-                <ListItemIcon>
-                  <MailIcon />
-                </ListItemIcon>
-                <ListItemText primary="Charts" />
-              </ListItemButton>
-            </ListItem>
-          </Link>
-          <ListItemButton onClick={handleClick}>
-            <ListItemIcon>
-              <InboxIcon />
-            </ListItemIcon>
-            <ListItemText primary="Inbox" />
-            {collapseOpen ? <FaChevronUp /> : <FaChevronDown />}
-          </ListItemButton>
-          <Collapse in={collapseOpen} timeout="auto" unmountOnExit>
-            <List component="div" disablePadding>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItemButton>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItemButton>
-              <ListItemButton sx={{ pl: 4 }}>
-                <ListItemIcon>
-                  <ChevronRightIcon />
-                </ListItemIcon>
-                <ListItemText primary="Starred" />
-              </ListItemButton>
-            </List>
-          </Collapse>
+          <SidebarItem href="/mui" Icon={RxDashboard} title="Dashboard" />
+          <SidebarItem
+            href="/mui/chat"
+            Icon={GoCommentDiscussion}
+            title="Chat"
+          />
+          <SidebarCollapseItem
+            title="Charts"
+            Icon={BiBarChartSquare}
+            items={[
+              {
+                title: "Bar Chart",
+                href: "/mui/charts/bar",
+                Icon: IoBarChartSharp,
+              },
+              {
+                title: "Line Chart",
+                href: "/mui/charts/line",
+                Icon: FaChartLine,
+              },
+              {
+                title: "Pie Chart",
+                href: "/mui/charts/pie",
+                Icon: FiPieChart,
+              },
+              {
+                title: "Area Chart",
+                href: "/mui/charts/area",
+                Icon: LuAreaChart,
+              },
+              {
+                title: "Scatter Chart",
+                href: "/mui/charts/scatter",
+                Icon: FiPieChart,
+              },
+              {
+                title: "Radar Chart",
+                href: "/mui/charts/radar",
+                Icon: FiPieChart,
+              },
+              {
+                title: "Polar Area Chart",
+                href: "/mui/charts/polar-area",
+                Icon: FiPieChart,
+              },
+              {
+                title: "Doughnut Chart",
+                href: "/mui/charts/doughnut",
+                Icon: FiPieChart,
+              },
+            ]}
+          />
         </List>
         <Divider />
         <List>
