@@ -60,7 +60,13 @@ function ListCollapseItems({
     <Collapse in={open} timeout="auto" unmountOnExit>
       <List component="div" disablePadding>
         {items.map(({ href, title, Icon }, index) => (
-          <SidebarItem sx={{ pl: 4 }} href={href} title={title} Icon={Icon} />
+          <SidebarItem
+            key={index}
+            sx={{ pl: 4 }}
+            href={href}
+            title={title}
+            Icon={Icon}
+          />
         ))}
       </List>
     </Collapse>
