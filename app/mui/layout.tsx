@@ -232,11 +232,11 @@ export default function MuiLayout({
                 href: "/mui/charts/line",
                 Icon: FaChartLine,
               },
-              // {
-              //   title: "Pie Chart",
-              //   href: "/mui/charts/pie",
-              //   Icon: FiPieChart,
-              // },
+              {
+                title: "Other Charts",
+                href: "/mui/charts/others",
+                Icon: FiPieChart,
+              },
               // {
               //   title: "Area Chart",
               //   href: "/mui/charts/area",
