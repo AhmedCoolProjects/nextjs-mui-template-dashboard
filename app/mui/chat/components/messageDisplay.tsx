@@ -14,18 +14,25 @@ export default function MessageDisplay({
   const chatContainerRef = useRef(null);
 
   const scrollToBottom = () => {
+    // @ts-ignore
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
 
   const handleScroll = () => {
     const isAtBottom =
+      // @ts-ignore
       chatContainerRef.current.scrollHeight -
         1 -
+        // @ts-ignore
         chatContainerRef.current.scrollTop <=
+      // @ts-ignore
       chatContainerRef.current.clientHeight;
     setShowScrollButton(!isAtBottom);
+    // @ts-ignore
     console.log("clientHeight", chatContainerRef.current.clientHeight);
+    // @ts-ignore
     console.log("scrollHeight", chatContainerRef.current.scrollHeight);
+    // @ts-ignore
     console.log("scrollTop", chatContainerRef.current.scrollTop);
     console.log("----------------------");
   };
