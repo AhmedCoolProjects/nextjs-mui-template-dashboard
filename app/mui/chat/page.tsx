@@ -1,4 +1,7 @@
 import { Metadata } from "next";
+import InputBar from "./components/inputBar";
+import MessageDisplay from "./components/messageDisplay";
+import messages from "./data.json";
 
 export const metadata: Metadata = {
   title: "MUI Template Chat",
@@ -6,5 +9,17 @@ export const metadata: Metadata = {
 };
 
 export default function MusicPage() {
-  return <></>;
+  return (
+    <main
+      style={{
+        height: "calc(100vh - 112px)",
+      }}
+      className=" flex flex-col "
+    >
+      <div className="flex flex-col flex-1">
+        <MessageDisplay messages={messages} />
+      </div>
+      <InputBar />
+    </main>
+  );
 }
