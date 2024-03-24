@@ -6,12 +6,9 @@ import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import CssBaseline from "@mui/material/CssBaseline";
 import MuiAppBar, { AppBarProps as MuiAppBarProps } from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
 import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
 import Divider from "@mui/material/Divider";
 import IconButton from "@mui/material/IconButton";
-import { AiOutlineMenuUnfold as MenuIcon } from "react-icons/ai";
 import { AiOutlineMenuFold as ChevronLeftIcon } from "react-icons/ai";
 import { AiOutlineMenuFold as ChevronRightIcon } from "react-icons/ai";
 import ListItem from "@mui/material/ListItem";
@@ -19,8 +16,7 @@ import ListItemButton from "@mui/material/ListItemButton";
 import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
 import useMediaQuery from "@mui/material/useMediaQuery";
-import { InputBase } from "@mui/material";
-import { IoSearch } from "react-icons/io5";
+
 import { usePathname } from "next/navigation";
 import SidebarItem from "./components/sidebarItem";
 import { GoCommentDiscussion } from "react-icons/go";
@@ -30,51 +26,9 @@ import SidebarCollapseItem from "./components/sidebarCollapseItem";
 import { IoBarChartSharp } from "react-icons/io5";
 import { FiPieChart } from "react-icons/fi";
 import { FaChartLine } from "react-icons/fa6";
-import { LuAreaChart } from "react-icons/lu";
+import MuiNavbar from "./components/navbar";
 
 const drawerWidth = 240;
-
-const Search = styled("div")(({ theme }) => ({
-  position: "relative",
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: alpha(theme.palette.common.white, 0.15),
-  "&:hover": {
-    backgroundColor: alpha(theme.palette.common.white, 0.25),
-  },
-  marginLeft: 0,
-  width: "100%",
-  [theme.breakpoints.up("sm")]: {
-    marginLeft: theme.spacing(1),
-    width: "auto",
-  },
-}));
-
-const SearchIconWrapper = styled("div")(({ theme }) => ({
-  padding: theme.spacing(0, 2),
-  height: "100%",
-  position: "absolute",
-  pointerEvents: "none",
-  display: "flex",
-  alignItems: "center",
-  justifyContent: "center",
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
-  width: "100%",
-  "& .MuiInputBase-input": {
-    padding: theme.spacing(1, 1, 1, 0),
-    // vertical padding + font size from searchIcon
-    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
-    transition: theme.transitions.create("width"),
-    [theme.breakpoints.up("sm")]: {
-      width: "12ch",
-      "&:focus": {
-        width: "20ch",
-      },
-    },
-  },
-}));
 
 const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
   open?: boolean;
@@ -102,27 +56,6 @@ const Main = styled("main", { shouldForwardProp: (prop) => prop !== "open" })<{
 interface AppBarProps extends MuiAppBarProps {
   open?: boolean;
 }
-
-const AppBar = styled(MuiAppBar, {
-  shouldForwardProp: (prop) => prop !== "open",
-})<AppBarProps>(({ theme, open }) => {
-  const isDesktop = useMediaQuery(theme.breakpoints.up("md"));
-  return {
-    transition: theme.transitions.create(["margin", "width"], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    ...(open &&
-      isDesktop && {
-        width: `calc(100% - ${drawerWidth}px)`,
-        marginLeft: `${drawerWidth}px`,
-        transition: theme.transitions.create(["margin", "width"], {
-          easing: theme.transitions.easing.easeOut,
-          duration: theme.transitions.duration.enteringScreen,
-        }),
-      }),
-  };
-});
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -159,31 +92,7 @@ export default function MuiLayout({
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />
-      <AppBar color="info" position="fixed" open={open}>
-        <Toolbar>
-          <IconButton
-            color="inherit"
-            aria-label="open drawer"
-            onClick={handleDrawerOpen}
-            edge="start"
-            sx={{ mr: 2, ...(open && { display: "none" }) }}
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" noWrap component="div">
-            Jina Pro
-          </Typography>
-          <Search>
-            <SearchIconWrapper>
-              <IoSearch />
-            </SearchIconWrapper>
-            <StyledInputBase
-              placeholder="Search…"
-              inputProps={{ "aria-label": "search" }}
-            />
-          </Search>
-        </Toolbar>
-      </AppBar>
+      <MuiNavbar open={open} handleDrawerOpen={handleDrawerOpen} />
       <Drawer
         sx={{
           width: drawerWidth,
