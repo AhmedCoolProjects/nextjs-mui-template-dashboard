@@ -3,71 +3,122 @@
 import {
   AppBar,
   Avatar,
+  Divider,
+  Drawer,
   IconButton,
+  List,
   ListItem,
   ListItemAvatar,
   ListItemButton,
   ListItemText,
+  OutlinedInput,
   Popover,
 } from "@mui/material";
 import { useState } from "react";
 import { BiFoodMenu } from "react-icons/bi";
-import AccountPopover from "./accountPopover";
+import ChatBarAccount from "./chatBarAccount";
+import { RiUserSearchLine } from "react-icons/ri";
 
 function ChatBar() {
-  const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
-
-  const handleClick = (event: React.MouseEvent<HTMLButtonElement>) => {
-    setAnchorEl(event.currentTarget);
+  const [open, setOpen] = useState(false);
+  const toggleDrawer = () => {
+    setOpen(!open);
   };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
-
-  const open = Boolean(anchorEl);
-  const id = open ? "simple-popover" : undefined;
   return (
-    <AppBar
-      color="secondary"
-      className="rounded-full overflow-hidden h-14 flex flex-row items-center justify-between pr-3 "
-      position="absolute"
-    >
-      <ListItem className="p-0" alignItems="center">
-        <ListItemButton
-          aria-describedby={id}
-          //   @ts-ignore
-          onClick={(e) => handleClick(e)}
-          className="w-fit"
-        >
-          <ListItemAvatar>
-            <Avatar alt="Ahmed Bargady" src="/logos/me.webp" />
-          </ListItemAvatar>
-          <ListItemText
-            primary="Ahmed Bargady"
-            secondary="Data Sientist, Full Stack Developer"
-            secondaryTypographyProps={{
-              className: "text-gray-300 text-xs",
-            }}
-          />
-        </ListItemButton>
-      </ListItem>
-      <IconButton>
-        <BiFoodMenu color="#fff" />
-      </IconButton>
-      <Popover
-        id={id}
-        open={open}
-        anchorEl={anchorEl}
-        onClose={handleClose}
-        anchorOrigin={{
-          vertical: "bottom",
-          horizontal: "left",
-        }}
+    <>
+      <AppBar
+        color="secondary"
+        className="rounded-full overflow-hidden h-14 flex flex-row items-center justify-between pr-3 "
+        position="absolute"
       >
-        <AccountPopover />
-      </Popover>
-    </AppBar>
+        <ChatBarAccount />
+        <IconButton onClick={toggleDrawer}>
+          <BiFoodMenu color="#fff" />
+        </IconButton>
+      </AppBar>
+      <Drawer
+        sx={{
+          "& .MuiDrawer-paper": {
+            width: 350,
+          },
+        }}
+        anchor="right"
+        open={open}
+        onClose={toggleDrawer}
+        // PaperProps={{ style: { position: "absolute" } }}
+        // slotProps={{
+        //   backdrop: { style: { position: "absolute" } },
+        // }}
+        // ModalProps={{
+        //   container: document.getElementById("drawer-container"),
+        //   style: { position: "absolute" },
+        // }}
+      >
+        <div className="w-full flex flex-col p-4">
+          <OutlinedInput
+            placeholder="Search..."
+            fullWidth
+            startAdornment={
+              <IconButton>
+                <RiUserSearchLine />
+              </IconButton>
+            }
+          />
+          <List
+            sx={{
+              width: "100%",
+              maxWidth: 360,
+              mt: 1,
+              bgcolor: "background.paper",
+            }}
+          >
+            <ListItemButton sx={{ p: 0, position: "relative" }}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar alt="Ahmed Bargady" src="/logos/me.webp" />
+                </ListItemAvatar>
+                <ListItemText primary="Ahmed Bargady" secondary="Bye!" />
+                <span className="absolute right-2 bottom-4 text-xs">
+                  12:00 PM
+                </span>
+              </ListItem>
+            </ListItemButton>
+            <Divider />
+            <ListItemButton sx={{ p: 0, position: "relative" }}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar alt="Ahmed Bargady" src="/icons/how_to.png" />
+                </ListItemAvatar>
+                <ListItemText primary="Ahmed Bargady 2" secondary="Bye!" />
+                <span className="absolute right-2 bottom-4 text-xs">
+                  12:00 PM
+                </span>
+              </ListItem>
+            </ListItemButton>
+            <Divider />
+            <ListItemButton sx={{ p: 0, position: "relative" }}>
+              <ListItem>
+                <ListItemAvatar>
+                  <Avatar alt="Ahmed Bargady 3" src="/icons/explain.png" />
+                </ListItemAvatar>
+                <ListItemText
+                  primary="Ahmed Bargady"
+                  secondary="jklfdsjlfkjs sdljfsd fsd jfklsdf fdsjkj flsjfds f sjfkldsjf !"
+                  secondaryTypographyProps={{
+                    className: "text-overflow-ellipsis",
+                    width: "70%",
+                  }}
+                />
+                <span className="absolute right-2 bottom-4 text-xs">
+                  12:00 PM
+                </span>
+              </ListItem>
+            </ListItemButton>
+            <Divider />
+          </List>
+        </div>
+      </Drawer>
+    </>
   );
 }
 
