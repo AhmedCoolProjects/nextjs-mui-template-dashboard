@@ -28,13 +28,6 @@ export default function MessageDisplay({
       // @ts-ignore
       chatContainerRef.current.clientHeight;
     setShowScrollButton(!isAtBottom);
-    // @ts-ignore
-    console.log("clientHeight", chatContainerRef.current.clientHeight);
-    // @ts-ignore
-    console.log("scrollHeight", chatContainerRef.current.scrollHeight);
-    // @ts-ignore
-    console.log("scrollTop", chatContainerRef.current.scrollTop);
-    console.log("----------------------");
   };
 
   useEffect(() => {
@@ -48,7 +41,7 @@ export default function MessageDisplay({
       <div
         ref={chatContainerRef}
         onScroll={handleScroll}
-        className="flex flex-col messages-container overflow-y-auto p-3 space-y-4 max-h-[70vh]"
+        className="flex flex-col messages-container overflow-y-auto p-3 pt-16 space-y-4 max-h-[70vh]"
       >
         {messages.map((msg, index) => (
           <Paper

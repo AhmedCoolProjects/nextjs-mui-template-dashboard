@@ -5,7 +5,7 @@ import { useState } from "react";
 import { RxDropdownMenu } from "react-icons/rx";
 
 function MobileSample({ children }: { children: React.ReactNode }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   const toggleDrawer = () => {
     setOpen(!open);
   };
