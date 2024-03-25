@@ -16,8 +16,8 @@ import { FiLinkedin } from "react-icons/fi";
 
 function AccountPopover() {
   return (
-    <div className="p-4 flex flex-row ">
-      <div className="flex text-center flex-col w-[300px] items-center">
+    <div className="p-6 md:p-4 flex flex-col md:flex-row ">
+      <div className="flex text-center flex-col w-full md:w-[300px] items-center">
         <Avatar
           className="w-24 h-24"
           alt="Ahmed Bargady"
@@ -28,7 +28,13 @@ function AccountPopover() {
           Full Stack Developer since 2018, Data Scientist since 2023
         </span>
       </div>
-      <Divider orientation="vertical" flexItem sx={{ mx: 2 }} />
+      <Divider className="flex md:hidden" sx={{ my: 2 }} />
+      <Divider
+        orientation="vertical"
+        className="hidden md:flex"
+        flexItem
+        sx={{ mx: 2 }}
+      />
       <List>
         <ListItem
           className="min-w-[360px]"
