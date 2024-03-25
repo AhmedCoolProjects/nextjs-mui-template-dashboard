@@ -172,12 +172,10 @@ function FilterSetsDialog({
         Select filter sets to apply
       </DialogTitle>
       <DialogContent>
-        <Grid container spacing={2} alignItems="center">
-          <Grid xs={5} item>
-            {customList("Available", left)}
-          </Grid>
-          <Grid xs={2} item>
-            <Grid container direction="column" alignItems="center">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 md:gap-4 items-center">
+          <div className="md:col-span-5">{customList("Available", left)}</div>
+          <div className="md:col-span-2">
+            <div className="items-center flex flex-row md:flex-col justify-center">
               <Button
                 sx={{ my: 0.5 }}
                 variant="outlined"
@@ -185,6 +183,7 @@ function FilterSetsDialog({
                 onClick={handleCheckedRight}
                 disabled={leftChecked.length === 0}
                 aria-label="move selected right"
+                className="rotate-90 md:rotate-0 w-fit"
               >
                 &gt;
               </Button>
@@ -195,15 +194,14 @@ function FilterSetsDialog({
                 onClick={handleCheckedLeft}
                 disabled={rightChecked.length === 0}
                 aria-label="move selected left"
+                className="rotate-90 md:rotate-0 w-fit"
               >
                 &lt;
               </Button>
-            </Grid>
-          </Grid>
-          <Grid xs={5} item>
-            {customList("Chosen", right)}
-          </Grid>
-        </Grid>
+            </div>
+          </div>
+          <div className="md:col-span-5">{customList("Chosen", right)}</div>
+        </div>
       </DialogContent>
       <DialogActions>
         <Button autoFocus onClick={handleClose}>

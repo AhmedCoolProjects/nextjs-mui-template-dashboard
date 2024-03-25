@@ -102,7 +102,7 @@ function ClusterItem({
         labelPlacement="start"
         className=" m-0 w-auto justify-between flex flex-row-reverse items-center"
       />
-      <div className="grid grid-cols-4 mt-2 gap-4 w-full">
+      <div className="grid grid-cols-2 md:grid-cols-4 mt-2 gap-2 md:gap-4 w-full">
         {sensors.map((sensor, index) => (
           <FormControlLabel
             key={index}
