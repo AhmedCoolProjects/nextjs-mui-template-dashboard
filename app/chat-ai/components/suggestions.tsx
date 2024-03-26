@@ -4,7 +4,7 @@ import ObstacleSvg from "@/components/icons/obstacle.svg";
 
 function Suggestions() {
   return (
-    <div className="w-full h-full pb-12 flex flex-col items-center justify-center">
+    <div className="w-full  pt-24 flex flex-col items-center justify-center">
       <h2 className="mb-3 bg-white py-2 rounded-full px-4 text-lg font-semibold tracking-tight">
         AI Assistant
       </h2>
