@@ -1,13 +1,20 @@
+"use client";
+
 import Image from "next/image";
 import { SUGGESTIONS } from "../data/suggestions";
 import ObstacleSvg from "@/components/icons/obstacle.svg";
+import { Button } from "@/components/ui/button";
+import PluginsDialog from "./pluginsDialog";
 
 function Suggestions() {
   return (
     <div className="w-full  pt-24 flex flex-col items-center justify-center">
-      <h2 className="mb-3 bg-white py-2 rounded-full px-4 text-lg font-semibold tracking-tight">
-        AI Assistant
-      </h2>
+      <div className="flex flex-row justify-center">
+        <Button className="mb-3 text-black z-10 bg-white hover:bg-accent !py-5 rounded-full !px-6 text-lg font-semibold tracking-tight">
+          AI Assistant
+        </Button>
+        <PluginsDialog />
+      </div>
       <h1 className="text-2xl font-semibold text-center mb-6">
         Good day! How can I help you today?
       </h1>
