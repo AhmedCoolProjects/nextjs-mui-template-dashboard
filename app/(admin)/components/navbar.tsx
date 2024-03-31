@@ -3,8 +3,11 @@
 import { Button } from "@/components/ui/button";
 import LeftSvg from "@/components/icons/left.svg";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { ADMIN_PAGES } from "../data/pages";
 
 function Navbar() {
+  const pathname = usePathname();
   return (
     <nav className="bg-white z-[9999] sticky top-0 flex px-7 py-3 flex-row items-center justify-between border-b border-gray-200">
       <div className="flex flex-row items-center space-x-4">
@@ -16,7 +19,10 @@ function Navbar() {
             <LeftSvg className="w-5" />
           </Button>
         </Link>
-        <h1 className="font-medium  !text-[#020617]">Settings</h1>
+        <h1 className="font-medium  !text-[#020617]">
+          {ADMIN_PAGES.find((page) => page.pathname === pathname)?.title ??
+            "Administration"}
+        </h1>
       </div>
     </nav>
   );
