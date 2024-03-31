@@ -13,19 +13,19 @@ function ProfileInfos({ id }: { id: string }) {
         description="Edit your profile information below"
       />
       <div className="flex flex-col space-y-5">
-        <div className="flex flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-start space-y-2 lg:space-y-0 lg:items-center">
           <span className="min-w-44 text-cus-gray text-sm">Profile photo</span>
           <FileInput />
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-start space-y-2 lg:space-y-0 lg:items-center">
           <span className="min-w-44 text-cus-gray text-sm">Name</span>
           <Input placeholder="" value="Jina" />
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-start space-y-2 lg:space-y-0 lg:items-center">
           <span className="min-w-44 text-cus-gray text-sm">Business name</span>
           <Input placeholder="" value="Jina" />
         </div>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-col lg:flex-row items-start space-y-2 lg:space-y-0 lg:items-center">
           <span className="min-w-44 text-cus-gray text-sm">
             Business Category
           </span>

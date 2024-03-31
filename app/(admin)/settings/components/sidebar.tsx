@@ -4,7 +4,7 @@ import SidebarItem from "./sidebarItem";
 
 function Sidebar() {
   return (
-    <div className="w-[206px]  fixed top-[80px] h-auto mr-auto left-3 right-0  ">
+    <div className="w-[206px] lg:flex flex-col hidden fixed top-[80px] h-auto mr-auto left-3 right-0  ">
       <SidebarItem
         to="profileInfos"
         className="pl-3 text-[#475569]"
