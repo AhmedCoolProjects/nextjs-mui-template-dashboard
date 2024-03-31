@@ -27,6 +27,8 @@ import { IoBarChartSharp } from "react-icons/io5";
 import { FiPieChart } from "react-icons/fi";
 import { FaChartLine } from "react-icons/fa6";
 import MuiNavbar from "./components/navbar";
+import { IoSettingsOutline } from "react-icons/io5";
+import Link from "next/link";
 
 const drawerWidth = 240;
 
@@ -190,6 +192,19 @@ export default function MuiLayout({
             </ListItem>
           ))}
         </List>
+        <Link className="mt-auto mb-4" href="/settings" passHref>
+          <ListItem
+            className=" border overflow-hidden border-gray-200 w-11/12 mx-auto rounded-full"
+            disablePadding
+          >
+            <ListItemButton>
+              <ListItemIcon>
+                <IoSettingsOutline />
+              </ListItemIcon>
+              <ListItemText primary="Settings" />
+            </ListItemButton>
+          </ListItem>
+        </Link>
       </Drawer>
       <Main open={open}>
         <DrawerHeader />
