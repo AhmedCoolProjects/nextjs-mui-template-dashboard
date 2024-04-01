@@ -13,7 +13,7 @@ export default function Hero() {
       <Navbar />
       <div className="flex flex-col items-center text-center justify-center w-full h-full">
         <h1 className="text-7xl font-semibold leading-[82px]">
-          Dashboards that shine <br /> like the stars.
+          Applications that shine <br /> like the stars.
         </h1>
         <p className="text-[#cbd5e1] text-[16px] mt-4">
           The dashboard samples AI powered <br /> you need to transport your
