@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:opsz@9..40&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -35,6 +36,8 @@
     --radius: 0.5rem;
 
     --ai-assi-primary: #5661F6;
+
+    --landing-bg: #070815;
   }
  
   .dark {
@@ -92,4 +95,8 @@
 .messages-container {
   -ms-overflow-style: none;  /* IE and Edge */
   scrollbar-width: none;  /* Firefox */
+}
+.font-landing {
+  font-family: 'Quicksand', sans-serif;
+  
 }

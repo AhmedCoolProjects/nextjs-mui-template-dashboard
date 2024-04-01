@@ -56,6 +56,7 @@ const config = {
           foreground: "hsl(var(--card-foreground))",
         },
         "ai-assi-primary": "var(--ai-assi-primary)",
+        "landing-bg": "var(--landing-bg)",
       },
       borderRadius: {
         lg: "var(--radius)",
