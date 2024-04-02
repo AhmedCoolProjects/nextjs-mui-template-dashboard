@@ -37,7 +37,7 @@ function AccountPopover() {
       />
       <List>
         <ListItem
-          className="min-w-[360px]"
+          className="md:min-w-[360px] min-w-full"
           secondaryAction={
             <IconButton edge="end" aria-label="delete">
               <MdOutlineContentCopy />
@@ -49,10 +49,15 @@ function AccountPopover() {
               <IoMailOutline />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="ahmed.bargady@outlook.com" />
+          <ListItemText
+            primary="ahmed.bargady@outlook.com"
+            primaryTypographyProps={{
+              className: "text-sm md:text-base",
+            }}
+          />
         </ListItem>
         <ListItem
-          className="min-w-[360px]"
+          className="md:min-w-[360px] min-w-full"
           secondaryAction={
             <IconButton edge="end" aria-label="delete">
               <MdOutlineContentCopy />
@@ -64,10 +69,15 @@ function AccountPopover() {
               <CiPhone />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="0612345678" />
+          <ListItemText
+            primary="0612345678"
+            primaryTypographyProps={{
+              className: "text-sm md:text-base",
+            }}
+          />
         </ListItem>
         <ListItem
-          className="min-w-[360px]"
+          className="md:min-w-[360px] min-w-full"
           secondaryAction={
             <IconButton edge="end" aria-label="delete">
               <MdOutlineContentCopy />
@@ -79,10 +89,15 @@ function AccountPopover() {
               <FiLinkedin />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="@ahmed-bargady" />
+          <ListItemText
+            primary="@ahmed-bargady"
+            primaryTypographyProps={{
+              className: "text-sm md:text-base",
+            }}
+          />
         </ListItem>
         <ListItem
-          className="min-w-[360px]"
+          className="md:min-w-[360px] min-w-full"
           secondaryAction={
             <IconButton edge="end" aria-label="delete">
               <MdOutlineContentCopy />
@@ -94,7 +109,12 @@ function AccountPopover() {
               <FiGithub />
             </Avatar>
           </ListItemAvatar>
-          <ListItemText primary="@AhmedCoolProjects" />
+          <ListItemText
+            primary="@AhmedCoolProjects"
+            primaryTypographyProps={{
+              className: "text-sm md:text-base",
+            }}
+          />
         </ListItem>
       </List>
     </div>
